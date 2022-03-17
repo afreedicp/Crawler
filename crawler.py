@@ -37,27 +37,17 @@ def get_artists(url):
 
 
 def crawl():
-    base_dir = "lyrics"
-    try:
-        os.mkdir(base_dir)
-    except Exception:
-        pass
+
     artist = get_artists("http://www.songlyrics.com/l/")
     for name, link in artist:
-        name_dir = os.path.join(base_dir, name.replace(" ", "_").lower())
-        try:
-            os.mkdir(name_dir)
-        except Exception:
-            pass
         songs = get_songs(link)
         for song, song_link in songs:
+            print("-------------------------------------------------------------", song, name,
+                  "-----------------------------------------")
             lyrics = get_lyrics(song_link)
-            song_file = os.path.join(
-                name_dir, song.replace(" ", "_").lower()+".txt")
-            with open(song_file, "w") as f:
-                f.write(lyrics)
-            print(".", end="", flush=True)
-        print("DONE")
+            print(lyrics)
+            print("\n")
+    print("DONE")
 
 
 if __name__ == "__main__":
