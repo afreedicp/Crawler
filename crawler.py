@@ -1,5 +1,4 @@
 import requests
-import os
 from bs4 import BeautifulSoup
 
 
@@ -42,7 +41,7 @@ def crawl():
     for name, link in artist:
         songs = get_songs(link)
         for song, song_link in songs:
-            print("-------------------------------------------------------------", song, name,
+            print("-----------------------------------------", song,
                   "-----------------------------------------")
             lyrics = get_lyrics(song_link)
             print(lyrics)
