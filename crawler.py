@@ -41,12 +41,16 @@ def crawl():
     for name, link in artist:
         songs = get_songs(link)
         for song, song_link in songs:
-            print("-----------------------------------------", song,
-                  "-----------------------------------------")
+            print("------------------------", song,
+                  "------------------------")
             lyrics = get_lyrics(song_link)
-            print(lyrics)
-            print("\n")
-    print("DONE")
+            with open("lyrics", "a")as f:
+                f.write("**********************************")
+                f.write(lyrics)
+                f.write("--------------------------------")
+            # print(lyrics)
+            # print("\n")
+        print("DONE")
 
 
 if __name__ == "__main__":
