@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import psycopg2
 
 
 def get_songs(artist_url):
@@ -38,19 +39,31 @@ def get_artists(url):
 def crawl():
 
     artist = get_artists("http://www.songlyrics.com/l/")
-    for name, link in artist:
+    conn = psycopg2.connect("dbname=music")
+    curr = conn.cursor()
+    curr.execute(
+        'ALTER SEQUENCE ARTIST_id_seq RESTART WITH 1')
+    curr.execute(
+        'ALTER SEQUENCE SONG_songid_seq RESTART WITH 1')
+    curr.execute('DELETE FROM SONG')
+    curr.execute('DELETE FROM ARTIST')
+    for name, link, in artist[:10]:
         songs = get_songs(link)
-        for song, song_link in songs:
-            print("------------------------", song,
-                  "------------------------")
+        curr.execute(
+            'INSERT INTO ARTIST(Name)VALUES(%s)', (name,))
+        for song, song_link in songs[:10]:
+
             lyrics = get_lyrics(song_link)
-            with open("lyrics", "a")as f:
-                f.write("**********************************")
-                f.write(lyrics)
-                f.write("--------------------------------")
-            # print(lyrics)
-            # print("\n")
-        print("DONE")
+
+            curr.execute(
+                'INSERT INTO song(artist,name,Lyrics)VALUES((SELECT id from artist WHERE name=%s),%s,%s);', (name, song, lyrics,))
+            print(song,
+                  "---")
+
+        # print(lyrics)
+        # print("\n")
+    conn.commit()
+    conn = curr.close()
 
 
 if __name__ == "__main__":
