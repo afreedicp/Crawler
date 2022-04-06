@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 import wget
-import os
 header = {
     'User-Agent': 'Mozilla/5.0 (MacintoshIntel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'
 }
@@ -31,9 +30,8 @@ def download_amirkhan(site_url):
 
 def main():
     amirlink = get_amirkhan(
-        "https://www.gettyimages.in/photos/aamir-khan-actor")
+        'https://www.gettyimages.in/photos/dulquer-salmaan?assettype=image&family=editorial&phrase=dulquer%20salmaan&sort=mostpopular')
     head = "https://www.gettyimages.in"
-    os.mkdir("images")
     for name, link in amirlink:
         wget.download(download_amirkhan(head+link))
 

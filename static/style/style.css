@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap');
+* {
+  background: #e6eaee;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  margin: 0;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 100, 100, 0.461);
+  border-radius: 5px;
+}
+.navbar {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 93px;
+  margin: 0;
+}
+.heading {
+  display: contents;
+  text-align: center;
+}
+.song {
+  color: rgb(235, 119, 119);
+  background: transparent;
+}
+.lyrics {
+  color: #467fb9;
+  background: transparent;
+}
+.com {
+  color: rgb(45, 45, 45);
+  background: transparent;
+  padding-top: 17px;
+}
+a:hover {
+  color: #467fb9;
+}
+a,
+a:active,
+a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+.lyrics_para {
+  max-width: 50em;
+  margin-left: auto;
+  margin-right: auto;
+}
+h1,
+h4 {
+  text-align: center;
+}
+.list-box {
+  border: 1px solid rgb(138, 138, 138);
+  border-radius: 3px;
+  min-width: 25rem;
+  margin-bottom: 3px;
+  padding-left: 5px;
+}
+ul {
+  justify-content: center;
+  display: grid;
+}
+
+
+li.current{
+  background-color: #007dfa
+}
