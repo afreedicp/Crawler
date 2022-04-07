@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap');
 * {
-  background: #e6eaee;
+  background: #929192;
   font-family: 'Poppins', sans-serif;
 }
 body {
-  margin: 0;
+  margin: 20px;
 }
 ::-webkit-scrollbar {
   width: 10px;
@@ -14,7 +14,7 @@ body {
   border-radius: 5px;
 }
 .navbar {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(185, 179, 179);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -22,25 +22,40 @@ body {
   height: 93px;
   margin: 0;
 }
+.artist {
+  font-weight: bold;
+  margin-top: 20px;
+  color: rgb(51, 255, 0);
+  background: transparent;
+  font-size: 20px;
+}
 .heading {
   display: contents;
   text-align: center;
 }
 .song {
-  color: rgb(235, 119, 119);
+  font-weight: bold;
+  color: rgb(236, 195, 61);
   background: transparent;
+  font-size: 20px;
+  margin-top: 20px;
 }
 .lyrics {
-  color: #467fb9;
+  font-weight: bold;
+  color: #131622;
   background: transparent;
+  font-size: 20px;
 }
 .com {
   color: rgb(45, 45, 45);
   background: transparent;
   padding-top: 17px;
 }
-a:hover {
-  color: #467fb9;
+h1 {
+  color: aliceblue;
+}
+h1:hover {
+  color: #216ab3;
 }
 a,
 a:active,
@@ -56,6 +71,9 @@ a:focus {
 h1,
 h4 {
   text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  font-style: italic;
 }
 .list-box {
   border: 1px solid rgb(138, 138, 138);
@@ -69,7 +87,6 @@ ul {
   display: grid;
 }
 
-
-li.current{
-  background-color: #007dfa
+li.current {
+  background-color: #007dfa;
 }

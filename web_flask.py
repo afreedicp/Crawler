@@ -23,7 +23,7 @@ def get_artist():
 @app.route("/songs/<int:aid>")
 def list_all_songs(aid):
     songs = get_data.get_all_songs(aid)
-    songs_arr = [{'id': i[0], "name":i[1]} for i in songs]
+    songs_arr = [{'id': i[1], "name":i[0]} for i in songs]
     return jsonify(songs_arr)
 
 
@@ -33,7 +33,7 @@ def lyrics(sid, aid):
     artist = get_data.singer(aid)
     artists = get_data.get_all_artist()
     lyrics = get_data.get_lyrics(sid)
-    return render_template("lyrics.html", lyrics=lyrics, artist=artist, artists=artists, songs=songs)
+    return jsonify(lyrics)
 
 
 if __name__ == "__main__":
