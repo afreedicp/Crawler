@@ -26,18 +26,11 @@
   </head>
   <body>
     <script src="{{url_for('static',filename='lyrics.js') }}"></script>
-    {%block body%}
+
     <div class="row">
-      <div class="col-3 border-right 4px solid #000 artist">
-        {%block list%}{%endblock%}
-      </div>
-      <div class="col-3 border-right 4px solid #000 song">
-        {%block details%}{%endblock%}
-      </div>
-      <div class="col-6 border-right 4px solid #000 lyrics">
-        {%block lyrics%}{%endblock%}
-      </div>
+      <div class="col-3 border-right 4px solid #000 artist"></div>
+      <div class="col-3 border-right 4px solid #000 song"></div>
+      <div class="col-6 border-right 4px solid #000 lyrics"></div>
     </div>
-    {%endblock%}
   </body>
 </html>
